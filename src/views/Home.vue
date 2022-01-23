@@ -4,7 +4,7 @@
             <v-app-bar-nav-icon/>
             <v-app-bar-title>lisx</v-app-bar-title>
             <v-spacer/>
-            <h3>observation results</h3>
+            <h3>{{$store.state.title}}</h3>
             <v-spacer/>
             <v-avatar color="grey lighten-2">
                 <span class="font-weight-bold">JK</span>

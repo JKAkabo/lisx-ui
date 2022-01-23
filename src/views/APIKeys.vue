@@ -73,6 +73,7 @@ export default {
         }
     },
     mounted() {
+        this.$store.commit('setTitle', 'api keys')
         this.load();
         this.currentUserID = JSON.parse(localStorage.getItem('accessToken'))['userID'];
     }

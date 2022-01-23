@@ -62,6 +62,7 @@ export default {
         }
     },
     mounted() {
+        this.$store.commit('setTitle', 'users')
         this.load();
     }
 };

@@ -4,6 +4,7 @@ import Login from '../views/Login.vue';
 import Home from '@/views/Home';
 import ObservationResults from '@/views/ObservationResults';
 import Users from '@/views/Users';
+import APIKeys from '@/views/APIKeys';
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,11 @@ const routes = [
                 path: '/users',
                 name: 'Users',
                 component: Users
+            },
+            {
+                path: '/api-keys',
+                name: 'APIKeys',
+                component: APIKeys
             }
         ]
     }

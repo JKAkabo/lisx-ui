@@ -14,18 +14,18 @@
             </v-data-table>
         </v-flex>
         <create-user v-model="actions.createUser" @save="load"/>
-        <update-user-permissions v-if="activeUserID" v-model="actions.setPermissions" @save="onSavePermissions" :user-i-d="activeUserID"/>
+        <set-user-permissions v-if="activeUserID" v-model="actions.setPermissions" @save="onSavePermissions" :user-i-d="activeUserID"/>
     </v-layout>
 </template>
 
 <script>
 import {getUsers} from '@/api';
 import CreateUser from '@/components/CreateUser';
-import UpdateUserPermissions from '@/components/UpdateUserPermissions';
+import SetUserPermissions from '@/components/SetUserPermissions';
 
 export default {
     name: 'Users',
-    components: {UpdateUserPermissions, CreateUser},
+    components: {SetUserPermissions, CreateUser},
     data: () => ({
         actions: {
             createUser: false,

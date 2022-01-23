@@ -2,7 +2,7 @@
     <v-dialog :value="value" @input="cancel" width="700" persistent>
         <v-card>
             <v-card-title class="justify-center">
-                set user permissions
+                set api key permissions
             </v-card-title>
             <v-divider/>
             <v-card-text class="pt-5">
@@ -39,11 +39,11 @@
 </template>
 
 <script>
-import {getResources, getUserPermissions, updateUserPermissions} from '@/api';
+import {getResources, getAPIKeyPermissions, updateAPIKeyPermissions} from '@/api';
 
 export default {
-    name: 'UpdateUserPermissions',
-    props: ['value', 'userID'],
+    name: 'SetAPIKeyPermissions',
+    props: ['value', 'apiKeyID'],
     data: () => ({
         headers: [
             {text: 'resource', value: 'resource'},
@@ -54,7 +54,7 @@ export default {
         ],
         form: [],
         loading: false,
-        saving: false
+        saving: false,
     }),
     methods: {
         cancel() {
@@ -62,7 +62,7 @@ export default {
         },
         save() {
             this.saving = true;
-            updateUserPermissions(this.userID, this.form)
+            updateAPIKeyPermissions(this.apiKeyID, this.form)
                 .then(() => {
                     this.$emit('input', false);
                     this.$emit('save');
@@ -74,7 +74,7 @@ export default {
     },
     mounted() {
         this.loading = true;
-        Promise.all([getUserPermissions(this.userID), getResources()])
+        Promise.all([getAPIKeyPermissions(this.apiKeyID), getResources()])
             .then(responses => {
                 let userPermissions = responses[0].data;
                 let resources = responses[1].data;

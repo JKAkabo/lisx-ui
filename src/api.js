@@ -62,3 +62,19 @@ export function updateUserPermissions(userID, payload) {
 export function getResources() {
     return axios.get('/resources');
 }
+
+export function getAPIKeys() {
+    return axios.get('/api-keys');
+}
+
+export function createAPIKey(payload) {
+    return axios.post('/api-keys', payload)
+}
+
+export function getAPIKeyPermissions(apiKeyID) {
+    return axios.get(`/api-key-permissions?api-key-id=${apiKeyID}`)
+}
+
+export function updateAPIKeyPermissions(apiKeyID, payload) {
+    return axios.put(`/api-key-permissions?api-key-id=${apiKeyID}`, payload);
+}
